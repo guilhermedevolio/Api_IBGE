@@ -52,7 +52,6 @@ $(document).on('click', '#btn-view', function() {
         url: 'https://servicodados.ibge.gov.br/api/v1/localidades/municipios/' + city_id,
         type: 'GET',
         success: function(callback) {
-
             $('#cityName').html(callback.nome);
             $('#cityMicro').html(callback.microrregiao.mesorregiao.nome);
             $('#cityUF').html(callback.microrregiao.mesorregiao.UF.nome);
