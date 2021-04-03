@@ -1,17 +1,14 @@
+
 $.ajax({
     type: 'GET',
     url: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/',
     success: function(callback) {
-        showEstados(callback);
+        estados.forEach(element => {
+            $('#selectEstados').append('<option>' + element.sigla + '</option>');
+        });
     }
 })
 
-
-function showEstados(estados) {
-    estados.forEach(element => {
-        $('#selectEstados').append('<option selected>' + element.sigla + '</option>');
-    });
-}
 
 $('#selectEstados').on('change', function() {
     var estado = $('#selectEstados option:selected').val();
@@ -59,5 +56,4 @@ $(document).on('click', '#btn-view', function() {
             $('#city_modal').modal('show');
         }
     })
-
 });
