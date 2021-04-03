@@ -4,7 +4,7 @@ $.ajax({
     url: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/',
     success: function(callback) {
         callback.forEach(element => {
-            $('#selectEstados').append('<option>' + element.nome +'</option>');
+            $('#selectEstados').append('<option value="'+element.sigla+'">' + element.nome + '</option>');
         });
     }
 })
