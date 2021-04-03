@@ -1,4 +1,3 @@
-
 $.ajax({
     type: 'GET',
     url: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/',
@@ -49,6 +48,7 @@ $(document).on('click', '#btn-view', function() {
         url: 'https://servicodados.ibge.gov.br/api/v1/localidades/municipios/' + city_id,
         type: 'GET',
         success: function(callback) {
+            $('.modal-title').html(callback.nome);
             $('#cityName').html(callback.nome);
             $('#cityMicro').html(callback.microrregiao.mesorregiao.nome);
             $('#cityUF').html(callback.microrregiao.mesorregiao.UF.nome);
